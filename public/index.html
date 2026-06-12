@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sydney Butterfly Releases</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: white;
+           justify-content: center;
+           align-items: center;
+        }
+
+        /* Header */
+        header {
+            background: #000;
+            color: white;
+            padding: 30px 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            position: sticky;
+            top: 0;
+        }
+
+        header img.logo {
+            height: 270px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+
+        header img.logo:hover {
+            transform: scale(1.08);
+        }
+
+        header h1 {
+            flex: 1;
+            text-align: center;
+            font-size: 4.5rem;
+            letter-spacing: 15px;
+            margin: 0;
+            font-family: 'Great Vibes', cursive;
+            font-weight: normal;
+            color: #fff;
+        }
+
+        header nav {
+            flex-shrink: 0;
+        }
+
+        header nav a {
+            display: inline-block;
+            margin-left: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.3em;
+            transition: color 0.3s, transform 0.3s;
+            transform-origin: center;
+        }
+
+        header nav a:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+
+
+
+        .hero img {
+         width: 45%;
+        border-radius: 15px;
+         min-width: 300px;
+        transition: transform 0.3s;
+
+    /* Soft radial fade */
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: cover;
+
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: cover;
+
+    /* Ensure the fade follows rounded corners */
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: center; /* center items horizontally */
+    align-items: center;
+    gap: 60px;               /* space between email and social */
+    flex-wrap: wrap;         /* wrap on smaller screens */
+    margin-top: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 30px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%);
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    filter: invert(70%) sepia(50%) saturate(500%) hue-rotate(300deg);
+}
+
+/* Location at bottom */
+.location-footer {
+    text-align: center;
+    color: white;
+    background: #111;
+    font-size: 1.1em;
+    border-top: 2px solid #333;
+    margin: 0;
+    padding: 20px 10%;
+}
+
+
+
+        /* Hero Section */
+
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 100px 10% 80px 10%;
+            background:hsl(40, 60%, 99%); /* lighter cream */
+            flex-wrap: wrap;
+        }
+
+        .hero img {
+            width: 45%;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            min-width: 300px;
+            transition: transform 0.3s;
+        }
+
+        
+
+        .hero-text {
+            width: 45%;
+            text-align: center;
+            min-width: 200px;
+            margin-top: 40px; /*was 250px*/
+        }
+
+        .hero-text h1 {
+            font-size: 1.3rem;
+            font-family: inherit;
+            font-weight: normal;
+            color: #222;
+            line-height: 1.4;
+            text-align: left; /* was center*/
+            font-weight: 70;
+        }
+        
+
+
+        .hero-text h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3.8rem;
+    margin-bottom: 18px;
+    color: #111;
+    font-weight: 400;
+    text-align: left;
+    line-height: 1.2;
+} 
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display:flex;/*was inline-block*/
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            padding: 24px 70px;
+            background: #000;
+            color: white;
+            border-radius: 60px;/*was 40px*/
+            text-decoration: none;
+            font-size: 1.4em;
+            font-weight: bold; /*was bold*/
+            transition: 0.3s;
+            transform-origin: center;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 90px 10%;
+        }
+
+        .packages h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4em;
+            color: #222;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .packages h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #000;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .package-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .package {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: 720px;
+            text-align: center;
+        }
+
+        .package:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        .package img {
+            display: block;
+            max-width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .package:hover img {
+            transform: scale(1.05);
+        }
+
+        .package h3 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .package p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .package .btn-select {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .package .btn-select:hover {
+            background: #444;
+            transform: scale(1.1);
+        }
+
+        @media(max-width: 900px) {
+            .package {
+                width: 45%;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .package {
+                width: 100%;
+            }
+        }
+
+        /* Enquiry Form */
+        .enquiry {
+            padding: 70px 10%;
+            text-align: center;
+            background: white;
+
+        }
+
+        .enquiry h2 {
+            font-size: 2.3em;
+            margin-bottom: 35px;
+        }
+
+        form {
+            width: 90%;
+            max-width: 1200px;/*was 600px*/
+            margin: 50px auto;
+            background: #f9f9f9;
+            padding: 35px; /*was 35px*/
+            border-radius: 15px;/*was 15px*/
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            box-sizing: border-box;
+        }
+
+        form label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .price-output {
+            margin: 20px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            padding: 20px 60px;
+            border: none;
+            border-radius: 30px;
+            background: #000;
+            color: white;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+                transform: scale(1.08);
+        }
+
+        .note {
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #555;
+            text-align: left;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 70px 10%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2.0em;
+            margin-bottom: 50px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 25px;
+            background: #fafafa;
+            border: none;
+            outline: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f0f0f0;
+        }
+
+        .arrow {
+            transition: transform 0.3s ease;
+            font-size: 20px;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            background: #fff;
+            font-size: 15px;
+            line-height: 1.5;
+            padding: 0 25px;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 15px 25px;
+        }
+
+        .faq-item.active .arrow {
+            transform: rotate(180deg);
+        }
+
+
+/* Contact Section */
+.contact {
+    margin: 0;
+    padding-bottom: 0;
+    padding: 25px 10%;
+    background: #000;
+    color: #eee;
+    text-align: center; /* centers heading and items */
+}
+
+/* Contact heading */
+.contact-title {
+    font-size: 2.0em;
+    color: #fff;        /* white so it shows on black background */
+    margin-bottom: 2px; /* space between heading and row */
+    margin-top:-10px;
+}
+
+/* Container for items in a row */
+.contact-items {
+    font-weight: 100;
+    display: flex;
+    justify-content: center; /* center items horizontally */
+    align-items: center;
+    gap: 50px;               /* space between items */
+    font-size: 1.0em;
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.contact-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+/* Footer */
+/* Footer */
+footer {
+    background: #111;
+    color: white;
+    padding: 10px 10%;
+    text-align: center;       /* center all text */
+    font-size: 0.9em;
+    border-top: 2px solid #333;
+
+}
+
+footer .footer-left,
+footer .footer-right {
+    display: flex;
+    gap: 10px;                   /* Space between items */
+    align-items: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+
+
+footer a {
+    white-space: nowrap;
+    color: #ffcc00;               /* Accent link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+
+/* Optional: small fade-slide animation for contact */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-slide.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section {
+    scroll-margin-top: 250px;
+}
+
+
+
+
+
+
+
+.small-text {
+  
+    font-weight: normal; /* optional: reduce boldness */
+    margin-top: 2px;    /* optional: reduce spacing above */
+    margin-bottom: 5px; /* optional: reduce spacing below */
+    font-size: 0.9em;
+    color: #555;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#home">
+            <img src="butterfly.jpg" alt="butterfly" class="logo">
+        </a>        
+        <h1>Sydney Butterfly Releases</h1>
+        <nav>          
+            <a href="#packages">Packages</a>
+            <a href="#enquiry">Enquiry</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="butterfly2.jpg" alt="Butterflies" class="side-photo">
+        <div class="hero-text fade-slide">
+
+             <h2>Create Beautiful, Lasting Memories with Live <br> Butterfly Releases</h2>
+
+            <h1>Sydney Butterfly Releases specialises in live <br> butterfly experiences for weddings, memorials,<br> and meaningful occasions.</h1>
+            <div class="container">
+            <a href="#packages" class="btn">View Packages</a>
+            <a href="#enquiry" class="btn">Enquire Here</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <h2>Our Packages</h2>
+        <div class="package-grid">
+            <div class="package">
+                <img src="package2.jpg" alt="Individual Release">
+                <h3>Individual Release</h3>
+                <p>$10 + $11 per butterfly</p>
+                <a href="#enquiry" class="btn-select">Select Package</a>
+            </div>
+            <div class="package">
+                <img src="package1.jpg" alt="Extra Small Cage">
+                <h3>Extra Small Cage</h3>
+                <p>$45 + $11 per butterfly</p>
+                <a href="#enquiry" class="btn-select">Select Package</a>
+            </div>
+            <div class="package">
+                <img src="package3.jpg" alt="Small Cage">
+                <h3>Small Cage</h3>
+                <p>$70 + $11 per butterfly</p>
+                <a href="#enquiry" class="btn-select">Select Package</a>
+            </div>
+            <div class="package">
+                <img src="package4.jpg" alt="Large Cage">
+                <h3>Large Cage</h3>
+                <p>$85 + $11 per butterfly</p>
+                <a href="#enquiry" class="btn-select">Select Package</a>
+            </div>
+            <div class="package">
+                <img src="package5.jpg" alt="Extra Large Cage">
+                <h3>Extra Large Cage</h3>
+                <p>$95 + $11 per butterfly</p>
+                <a href="#enquiry" class="btn-select">Select Package</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Form -->
+
+   <!-- Enquiry Form -->
+<section class="enquiry" id="enquiry">
+    <h2>Enquire Now</h2>
+    <form id="contactForm">
+
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone">
+
+        <label for="butterflies">Number of Butterflies</label>
+        <input type="number" id="butterflies" name="butterflies" min="1" required>
+
+        <label for="package">Packaging Type</label>
+        <select id="package" name="package" required>
+            <option value="10">Individual Release - $10 per box + $11 per butterfly</option>
+            <option value="45">Extra Small Cage - $45</option>
+            <option value="70">Small Cage - $70</option>
+            <option value="85">Large Cage - $85</option>
+            <option value="95">Extra Large Cage - $95</option>
+        </select>
+
+        <label for="payment">Payment Method</label>
+        <select id="payment" name="payment" required>
+            <option value="cash">Cash on Delivery / Pickup</option>
+            <option value="payid">PayID Bank Transfer</option>
+        </select>
+
+        <div id="payidDetails" style="display:none; margin-top:10px; color:#000; font-weight:bold; background:#f8f8f8; padding:15px; border-radius:8px;">
+             Please transfer your payment to our PayID:<br>
+            <span style="color:#222;"> Email: <strong>sydneybutterflyreleases@gmail.com</strong></span><br>
+            Use your <strong>Name + Order Date</strong> as the payment reference.<br>
+             Your order will only be prepared once payment is confirmed.
+        </div>
+
+        <label for="date">Date of Release</label>
+        <p class="small-text"><strong>Butterflies will be ready for pickup or delivery the day before your event, when available.</strong></p>
+        <input type="date" id="date" name="date" required>
+
+        <label for="message">Additional Notes</label>
+        <textarea id="message" name="message" rows="4" placeholder="Any extra information..."></textarea>
+
+        <div class="price-output" id="totalPrice">Total: $0</div>
+
+        <button type="submit" class="submit-btn">Submit Enquiry</button>
+
+        <p id="formMessage" style="margin-top:15px; font-weight:bold;"></p>
+
+        <p class="note"><strong>Once you submit your enquiry, we will contact you to confirm your order.</strong> 
+            <br>
+            <br>
+            We accept <strong>cash</strong> or <strong>PayID bank transfer</strong>. Please give us at least two weeks notice to prepare your butterflies.
+        <br><br>
+        <b>Note:</b>&nbsp;We currently deliver to the Greater Sydney area only.</p>
+    </form>
+</section>
+
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">How do I store the butterflies? <span class="arrow">&#9662;</span></button>
+                <div class="faq-answer"><p>Keep them in the box in a cool room, and before releasing them, take them out for a few minutes so they can warm up.
+                </p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do I need to feed them?<span class="arrow">&#9662;</span></button>
+                <div class="faq-answer"><p>No you will not need to feed the butterflies. They are fed prior to sending. </p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How long can I keep them in the box?<span class="arrow">&#9662;</span></button>
+                <div class="faq-answer"><p>Do not keep them any longer than a day or two.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What weather is best for release?<span class="arrow">&#9662;</span></button>
+                <div class="faq-answer"><p>Butterflies should be released on a warm, sunny day with little or no wind.</p></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What butterflies do you sell?<span class="arrow">&#9662;</span></button>
+                <div class="faq-answer"><p>We currently only sell monarch butterflies</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="contact-title">Contact Us</h2>
+        
+        <!-- Email + Social Row -->
+        <div class="contact-row">
+            <div class="contact-item">
+                <p>Email: <a href="mailto:sydneybutterflyreleases@gmail.com">sydneybutterflyreleases@gmail.com</a></p>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/sydneybutterflyreleases" target="_blank" aria-label="Facebook">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com/sydney_butterfly_releases" target="_blank" aria-label="Instagram">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    <!-- Footer -->
+    <footer>
+            <p>&copy; 2025 Sydney Butterfly Releases. All rights reserved.</p>
+            <p>Location: Sydney, NSW, Australia</p>
+    </footer>
+    
+    
+    <script src="app.js"></script>
+
+    <script>
+        window.SnipcartSettings = {
+            publicApiKey: "ODcyMGUyZmYtNWRmZi00NzJjLWEyNTQtMjhlM2VkMzNjOWQ5NjM5MTYxNjk0NDg5MzUzMjI4",
+            loadStrategy: "on-user-interaction",
+        };
+        </script>
+        
+        <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.css" />
+        <script async src="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.js"></script>
+
+        <div hidden id="snipcart" data-api-key="ODcyMGUyZmYtNWRmZi00NzJjLWEyNTQtMjhlM2VkMzNjOWQ5NjM5MTYxNjk0NDg5MzUzMjI4"></div>
+
+</body>
+</html>

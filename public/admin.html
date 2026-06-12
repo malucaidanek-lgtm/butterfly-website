@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Manager</title>
+</head>
+<body>
+
+    <h1>Butterfly Stock Manager</h1>
+
+    <p>
+        Current Stock:
+        <span id="currentStock">Loading...</span>
+    </p>
+
+    <input
+        type="number"
+        id="newStock"
+        placeholder="Enter stock quantity">
+
+    <button onclick="updateStock()">
+        Update Stock
+    </button>
+
+    <script>
+
+        async function loadStock() {
+
+            const response =
+                await fetch("/stock");
+
+            const data =
+                await response.json();
+
+            document.getElementById(
+                "currentStock"
+            ).textContent = data.quantity;
+        }
+
+        async function updateStock() {
+
+            const quantity =
+                parseInt(
+                    document.getElementById("newStock").value,
+                    10
+                );
+
+            const response =
+                await fetch("/set-stock", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        quantity: quantity
+                    })
+                });
+
+            const result =
+                await response.json();
+
+            if (result.success) {
+
+                alert("Stock updated!");
+
+                loadStock();
+            }
+        }
+
+        loadStock();
+
+    </script>
+
+</body>
+</html>
+
+
+http://localhost:3000/admin.html
